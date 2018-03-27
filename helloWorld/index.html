@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>learn vue</title>
+  <script src="../vue.js"></script>
+</head>
+
+<body>
+  <div id="app">{{ message }}</div>
+  <div id="app2">
+    <span v-bind:title="message">鼠标在此悬停，看看会有什么效果</span>
+  </div>
+  <div id="app3">
+    <p v-if="seen">现在你可以看到我啦</p>
+  </div>
+
+  <div id="app4">
+    <ol>
+      <li v-for="todo in todos">
+        {{todo.text}}
+      </li>
+    </ol>
+  </div>
+
+  <div id="app5">
+    <p>{{ message }}</p>
+    <button v-on:click="reverseMessage">逆转消息</button>
+  </div>
+
+  <div id="app6">
+    <p> {{message}} </p>
+    <input type="text" v-model="message">
+  </div>
+
+  <div id="app7">
+    <ol>
+      <todo-items v-for="item in groceryList" v-bind:todo="item" v-bind:key="item.id">
+      </todo-items>
+    </ol>
+  </div>
+
+</body>
+<script src="./index.js"></script>
+
+</html>
