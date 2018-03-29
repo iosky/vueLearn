@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>学习使用Vue的模板语法</title>
+  <script src="../vue.js"></script>
+</head>
+<body>
+  <div id="app">
+    <span>Message：{{ msg }}</span>
+    <span v-once>这个将不会改变： {{ msg2 }}</span>
+
+    <p>Using mustaches: {{ rawHtml }}</p>
+    <p>Using v-html directive: <span v-html="rawHtml"></span></p>
+
+    <div v-bind:id="dynamicId"></div>
+    <button v-bind:disabled="isButtonDisabled"></button>
+
+    {{ num + 1}}
+
+    {{ok ? 'yes' : 'no'}}
+
+    {{message.split('').reverse().join('')}}
+
+    <div v-bind:id="'list-' + id"></div>
+
+    <p v-if="seen">现在你可以看到我</p>
+
+    <a v-bind:href="url"></a>
+
+    <a v-on:click="doSomething">click me</a>
+
+    <form v-on:submit.prevent="onSubmit">
+      <button type="submit">start submit</button>
+    </form>
+
+    <a v-blind:href="url"></a>
+    <a :href="url"></a>
+
+    <a v-on:click="doSomething"></a>
+    <a @click="doSomething"></a>
+  </div>
+</body>
+<script src="./index.js"></script>
+</html>
