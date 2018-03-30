@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>学习vue的事件处理</title>
+  <script src="../vue.js"></script>
+</head>
+<body>
+  <div id="app">
+    <button v-on:click="counter += 1">Add 1</button>
+    <p>The button above has been clicked {{ counter }} timers</p>
+
+    <button v-on:click="greet">Greet</button>
+
+    <button @click="say('hi')">one</button>
+    <button @click="say('what')">two</button>
+
+    <button @click="warn('Form cannot be submitted yet.', $event)" type="submit">submit</button>
+
+    <!-- 阻止单击事件继续传播 -->
+    <a @click.stop="doThis"></a>
+
+    <!-- 提交事件不再重载 -->
+    <form @submit.prevent="onSubmit"></form>
+
+    <!-- 修饰符可以串联 -->
+
+    <a @click.stop.prevent="doThat"></a>
+
+    <!-- 只有修饰符 -->
+
+    <a @submit.prevent></a>
+
+
+    <!-- 添加事件监听器时使用事件捕获模式 -->
+    <!-- 即元素自身触发的事件先在此处处理，然后才交由内部元素进行处理 -->
+
+    <div @click.capture="doThis"></div>
+
+    <!-- 只有当event.target是当前元素自身的时候，才会触发处理函数 -->
+    <!-- 即事件不是内部元素触发的 -->
+    <div @click.self="doThat"></div>
+
+    <!-- 点击事件将只会触发一次 -->
+    <a @click.once="doThis"></a>
+<!-- 
+    滚动事件的默认行为将会立即执行
+    而不会等待onScroll完成
+    这其中包含了event。preventDefault的情况 -->
+    <div @scroll.passive="onScroll"></div>
+
+    <input @keyup.13="submit">
+
+    <input @keyup.enter="submit">
+
+    <input @keyup.alt.67="clear">
+
+    <input @click.ctrl="doSomething">
+
+    <!-- 即使alt或shift被一同按下时，也会触发 -->
+    <button @click.ctrl="onClick">A</button>
+
+    <!-- 有且只有ctrl键按下的时候，才会触发事件 -->
+
+    <button @click.ctrl.exact="onCtrlClick"></button>
+
+    <!-- 没有任何系统修饰键被按下的时候，才会触发事件 -->
+
+    <button @click.exact="onCLick"></button>
+  </div>
+</body>
+<script src="./index.js"></script>
+</html>
