@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>学习使用vue的列表渲染</title>
+  <script src="../vue.js"></script>
+  <script src="./component.js"></script>
+</head>
+<body>
+  <div id="app">
+    <ul>
+      <li v-for="item in items">
+        {{ item.msg }}
+      </li>
+    </ul>
+
+    <ul>
+      <li v-for="(item, index) in items">
+        {{parentMessage}} -- {{index}} -- {{item.msg}}
+      </li>
+    </ul>
+
+    <ul>
+      <li v-for="item of items">
+        {{item.msg}}
+      </li>
+    </ul>
+
+    <ul>
+      <li v-for="(value, key, index) in object">
+        {{value}} --- {{key}} --- {{index}}
+      </li>
+    </ul>
+
+    <ul>
+      <li v-for="n in evenNumbers">
+        {{ n }}
+      </li>
+    </ul>
+
+    <ul>
+      <li v-for="n in even(numbers)">
+        {{ n }}
+      </li>
+    </ul>
+
+    <div>
+      <span v-for="n in 10">{{ n }}</span>
+    </div>
+
+    <ul>
+      <template v-for="item in items">
+        <li> {{ item.msg }}</li>
+        <li class="divider"></li>
+      </template>
+    </ul>
+  </div>
+  <div id="todo-list-example">
+    <input v-model="newTodoText"
+      v-on:keyup.enter="addNewTodo"
+      placeholder="Add a todo"
+    >
+    <ul>
+      <li
+        is="todo-item"
+        v-for="(todo, index) in todos"
+        v-bind:key = "todo.id"
+        v-bind:title="todo.title"
+        v-on:remove="todos.splice(index, 1)"
+      ></li>
+    </ul>
+  </div>
+</body>
+<script src="./index.js"></script>
+</html>
