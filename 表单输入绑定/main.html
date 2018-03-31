@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>学习使用vue的表单绑定</title>
+  <script src="../vue.js"></script>
+</head>
+
+<body>
+  <div id="app">
+    <input v-model="msg" placeholder="edit me">
+    <p> message is : {{msg}} </p>
+
+
+    <span>Multiline message is:</span>
+    <p style="white-space: pre-line">{{msg}}</p>
+    <br>
+    <textarea v-model="msg" placeholder="add mutiple lines"></textarea>
+
+    <input type="checkbox" id="checkbox" v-model="checked">
+    <label for="checkbox"> {{ checked }} </label>
+
+    <input type="checkbox" id="jack" value="jack" v-model="checkedNames">
+    <label for="jack">jack</label>
+    <input type="checkbox" id="john" value="john" v-model="checkedNames">
+    <label for="john">john</label>
+    <input type="checkbox" id="mike" value="mike" v-model="checkedNames">
+    <label for="mike">mike</label>
+    <br>
+    <span>Checked names: {{ checkedNames }}</span>
+
+
+    <input type="radio" name="one" id="one" value="One" v-model="picked">
+    <label for="one">One</label>
+    <input type="radio" name="two" id="two" value="Two" v-model="picked">
+    <label for="two">Two</label>
+    <span>picked : {{picked}}</span>
+
+
+    <select v-model="selected">
+      <option  value=""disabled>请选择</option>
+      <option value="a">a</option>
+      <option value="b">b</option>
+      <option value="c">c</option>
+    </select>
+
+    <span>Selected : {{ selected }}</span>
+
+
+    <select v-model="selected2" multiple style="width: 50px">
+      <option value="a">a</option>
+      <option value="b">B</option>
+      <option value="c">c</option>
+    </select>
+    <span>selected : {{ selected2 }}</span>
+
+    <select v-model="selected3">
+      <option v-for="option in options" :value="option.value">
+        {{ option.text }}
+      </option>
+    </select>
+    <span>selected: {{ selected3 }}</span>
+
+
+    <input id="toggle" type="checkbox" v-model="toggle" true-value="yes" false-value="no">
+    <label for="toggle"> {{ toggle }} </label>
+
+    <input type="radio" v-model="pick" :value="a">
+
+    <select v-model="selected4">
+      <option :value="{ num: 123}">123</option>
+    </select>
+
+    <input v-model.lazy="msg">
+
+    <input v-model.number="age">
+
+    <input v-model.trim="msg">
+  </div>
+</body>
+<script src="./index.js"></script>
+
+</html>
