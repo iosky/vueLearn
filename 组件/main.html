@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>学习使用vue的组件</title>
+  <script src="../vue.js"></script>
+  <script src="./component.js"></script>
+</head>
+
+<body>
+  <div id="app">
+    <my-component></my-component>
+    <my-component2></my-component2>
+    <simple-component></simple-component>
+    <simple-component></simple-component>
+    <simple-component></simple-component>
+    <input v-model="parentMsg">
+    <br>
+    <child :my-message="parentMsg"></child>
+
+    <p>{{ total }}</p>
+    <button-counter @increment="incrementTotal"></button-counter>
+    <button-counter @increment="incrementTotal"></button-counter>
+
+    <p v-for="msg in messages">{{ msg }}</p>
+    <button-message @message="handleMessage"></button-message>
+  </div>
+  <div id="app2">
+    <my-component></my-component>
+    <child my-message="world"></child>
+  </div>
+
+</body>
+<script src="./index.js"></script>
+
+</html>
