@@ -40,6 +40,7 @@ export default {
         completed: false
       });
       e.target.value = "";
+      e.target.placeholder = '今天，要做点什么嘞？让我好好想想。。。。';
       } else {
         e.target.value = '';
         e.target.placeholder = '兄弟，请输入内容！！';
@@ -50,7 +51,6 @@ export default {
     },
     toggleFilter(state) {
       this.filter = state;
-      console.log(this.filter);
     },
     clearAllCompleted() {
       this.todos = this.todos.filter(todo => todo.completed === false);
