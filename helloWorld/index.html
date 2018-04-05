@@ -41,7 +41,11 @@
       <todo-items v-for="item in groceryList" v-bind:todo="item" v-bind:key="item.id">
       </todo-items>
     </ol>
+    <input type="radio" name="red" id="red" v-model="n">
+    <input type="radio" name="green" id="green" v-model="n">
   </div>
+
+
 
 </body>
 <script src="./index.js"></script>

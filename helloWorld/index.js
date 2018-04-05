@@ -66,6 +66,7 @@ let app6 = new Vue({
        {id: 0, text: '蔬菜'},
        {id: 1, text: '奶酪'},
        {id: 2, text: '随便其他什么可以吃的东西'}
-     ]
+     ],
+     n: false
    }
  })
