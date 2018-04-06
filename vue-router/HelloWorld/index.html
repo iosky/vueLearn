@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>开始学习vue-router</title>
+  <script src="../../vue.js"></script>
+  <script src="../../vue-router.js"></script>
+</head>
+<body>
+  <div id="app">
+    <h2>Hello APP!</h2>
+    
+    <p>
+      <!-- router-link组件可以用来导航
+      to属性指定连接
+      router-link标签默认被渲染成a标签 -->
+      <router-link to="/foo">go to foo</router-link>
+      <router-link to="/bar">got to bar</router-link>
+    </p>
+    <!-- router-view标签显示，导航出来的组件 -->
+    <router-view></router-view>
+  </div>
+</body>
+<script src="./main.js"></script>
+</html>
