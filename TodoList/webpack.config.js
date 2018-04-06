@@ -1,6 +1,6 @@
 const path = require('path');
 const isDev = process.env.NODE_ENV === 'development';
-const HTMLWP = require('html-webpack-plugin');
+const HtmlWP = require('html-webpack-plugin');
 const webpack = require('webpack');
 const ExtractWP = require('extract-text-webpack-plugin');
 const CleanWP = require('clean-webpack-plugin');
@@ -39,7 +39,7 @@ const config = {
         NODE_ENV: isDev ? '"development"' : '"production"'
       }
     }),
-    new HTMLWP(),
+    new HtmlWP(),
     new CleanWP(['./dist'])
   ]
 }
