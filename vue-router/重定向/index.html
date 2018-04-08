@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>命名路由</title>
+  <script src="../../vue.js"></script>
+  <script src="../../vue-router.js"></script>
+</head>
+
+<body>
+  <div id="app">
+    <h1>Redirect</h1>
+    <ul>
+      <li>
+        <router-link to="/">home</router-link>
+      </li>
+      <li>
+        <router-link to="/relative-redirect">/relative-redirect</router-link>
+      </li>
+      <li>
+        <router-link to="/relative-redirect?foo=bar">/relative-redirect?foo</router-link>
+      </li>
+      <li>
+        <router-link to="/absolute-redirect">/absolute-redirect</router-link>
+      </li>
+      <li>
+        <router-link to="/dynamic-redirect">/dynamic-redirect</router-link>
+      </li>
+      <li>
+        <router-link to="/dynamic-redirect/123">/dynamic-redirect/123</router-link>
+      </li>
+      <li>
+        <router-link to="/dynamic-redirect?to=foo">
+          /dynamic-redirect?to=foo
+        </router-link>
+      </li>
+      <li>
+        <router-link to="/dynamic-redirect#baz">
+          /dynamic-redirect#baz
+        </router-link>
+      </li>
+      <li>
+        <router-link to="/named-redirect">
+          /named-redirect
+        </router-link>
+      </li>
+      <li>
+        <router-link to="/redirect-with-params/123">/redirect-with-params/123</router-link>
+      </li>
+      <li>
+        <router-link to="/not-found">
+          not-found
+        </router-link>
+      </li>
+    </ul>
+    <router-view class="view"></router-view>
+  </div>
+  <script src="./main.js"></script>
+</body>
+
+</html>
