@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>表格</title>
+  <script src="../vue.js"></script>
+</head>
+
+<style>
+  body {
+    margin: 0;
+    padding: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  * {
+    box-sizing: border-box;
+  }
+
+  table {
+    width: 800px;
+    border: 1px solid #333;
+    cursor: pointer;
+    border-collapse: collapse;
+  }
+
+  th,
+  td {
+    border: 1px solid #333;
+    padding: 10px;
+  }
+
+  td {
+    padding: 20px;
+    text-align: center;
+  }
+
+  .btn {
+    width: 800px;
+    height: 60px;
+    line-height: 60px;
+    border: none;
+    outline: none;
+    background-color: #2ecc71;
+    color: #ffffff;
+    margin: 15px 0;
+  }
+
+  form {
+    width: 600px;
+    padding: 10px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
+    background: #ffffff;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+
+  }
+
+  form * {
+    width: 500px;
+    margin: 10px 0;
+  }
+
+  input {
+    height: 40px;
+    border: 1px solid #333;
+    outline: none;
+  }
+</style>
+
+
+<body>
+  <div id="app">
+    <table>
+      <tr>
+        <th>id</th>
+        <th>name</th>
+        <th>age</th>
+      </tr>
+      <tr v-for="item in content">
+        <td>{{item.id}}</td>
+        <td>{{item.name}}</td>
+        <td>{{item.age}}</td>
+      </tr>
+    </table>
+    <button class="btn" v-on:click="show = true">开始添加数据</button>
+    <form v-if="show" @submit.prevent="submit">
+      <label for="id">id</label>
+      <input type="number" name="id" id="id" v-model="addData.id">
+      <label for="name">name</label>
+      <input type="text" name="name" id="name" v-model="addData.name">
+      <label for="age">age</label>
+      <input type="text" name="age" id="age" v-model="addData.age">
+      <button type="submit" class="btn">提交</button>
+    </form>
+  </div>
+</body>
+<script>
+  let app = new Vue({
+    el: '#app',
+    data: {
+      content: [
+        {
+          id: 1,
+          name: '实例数据',
+          age: 12
+        }
+      ],
+      addData: {},
+      show: false
+    },
+    methods: {
+      update: function (data) {
+        let url = ''
+        fetch(url).then((res) => {
+          console.log(res);
+          this.content = JSON.parse(res)
+        })
+      },
+      submit: function () {
+        show = false
+        let url = ''
+        let data = JSON.stringify(this.addData)
+        fetch(url, {
+          method: 'POST',
+          headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+          },
+          body: data
+        }).then((res) => {
+          console.log(res);
+        })
+        this.update()
+      }
+    },
+    mounted: function () {
+      this.update()
+    }
+  })
+</script>
+
+</html>
